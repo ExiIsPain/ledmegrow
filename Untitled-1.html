@@ -1,46 +1,67 @@
 <script>
-function call(){
+function callRada(){
  var rada = document.getElementById("rada").value
- console.log(rada)
- /*switch (String(rada)){
- case "2":
- document.getElementById ("zaklad_B").style.display = "none"
+ switch (rada){
+ case "3":
+ document.getElementById ("zaklad_B").style.display = "none";
   document.getElementById("zaklad_ATA").style.display   = "block";
-  console.log(rada)
-  
-  case "3":
+  break;
+  case "2":
     document.getElementById("zaklad_B").style.display ="block";
-    document.getElementById ("zaklad_ATA").style.display = "none"
-    console.log(rada)
- }*/
- if (rada == "3"){
- document.getElementById ("zaklad_B").style.display = "none"
-  document.getElementById("zaklad_ATA").style.display   = "block";
+    document.getElementById ("zaklad_ATA").style.display = "none";
+    break;
  }
- else
- { 
-    document.getElementById("zaklad_B").style.display ="block";
-    document.getElementById ("zaklad_ATA").style.display = "none"
  }
-  
+function callATA(){
+   document.getElementById("booster").style.display = "block";
+   document.getElementById("show").style.display = "block";
+}
+function showF(){
+    var zaklad_ATA_select = document.getElementById("zaklad_ATA_select").value
+    var zaklad_B_select = document.getElementById("zaklad_B_select").value
+    var rokz = document.getElementById("checkRokz").checked
+    var bloom = document.getElementById("checkBloom").checked
+    var root = document.getElementById("checkRoot").checked
+    var calmag = document.getElementById("checkCalMag").checked
+switch(zaklad_ATA_select) {
+    case "1":
+        if (rokz == false && bloom == true && root == false && calmag == false) {
+            console.log("Leaves+Bloom")
+        }
+        if (rokz == false && bloom == true && root == false && calmag == true) {
+            console.log("Leaves+Bloom+Calmag")
+        }
+        if (rokz == false && bloom == false && root == false && calmag == true) {
+            console.log("Leaves+Bloom")
+        }
+        if (rokz == false && bloom == true && root == true && calmag == true) {
+            console.log("Leaves+Bloom+CalMag+Root")
+        }
+        if (rokz == false && bloom == true && root == true && calmag == false) {
+            console.log("Leaves+Bloom+Root")
+        }
+    break;
+    default:
+    alert("Tabulka neexistuje")
 
- }
-
-
+}
+}
 
 
 </script>
 <div>
     <label for="rada">Vyberte řadu hnojiv:</label>
-    <select onchange="call()" id="rada">
+    <select onchange="callRada()" id="rada">
         <option value="0" selected disabled hidden> </option>
         <option value="2">B'cuzz</option>
         <option value="3">ATA</option>
     </select>
 </div>
+
+</div>
 <div style="display:none" id="zaklad_ATA">
     <label for="zaklad_ATA_select">Vyberte základní výživu:</label>
-    <select  name="zaklad_ATA_select" >
+    <select onchange="callATA()" id="zaklad_ATA_select" >
         <option value="0" selected disabled hidden> </option>
         <option value="1">AWA Leaves+Max</option>
         <option value="2">Coco Max A+B</option>
@@ -49,20 +70,19 @@ function call(){
 </div>
 <div style="display:none;" id="zaklad_B">
     <label for="zaklad_B__">Vyberte základní výživu:</label>
-    <select  name="zaklad_B__" >
+    <select onchange="callB()" id="zaklad_B_select" >
         <option value="0" selected disabled hidden> </option>
         <option value="1">Bcuzz Coco A+B</option>
         <option value="2">Bcuzz Hydro A+B</option>
         <option value="3">Bcuzz Soil A+B</option>
     </select>
 </div>
-<div style="display:block;" id="booster">
-    <label for="booster__">Vyberte booster:</label>
-    <select  name="booster__" >
-        <option value="0" selected disabled hidden> </option>
-        <option value="1">Bloombastic</option>
-        <option value="2">Rootbastic</option>
-        <option value="3">CalMag</option>
-        <option value="4">Rokzbastic</option>
-    </select>
+<div style="display:none;" id="booster">
+    <p>Rokzbastic: <input type="checkbox" id="checkRokz"></p>
+    <p>Bloombastic: <input type="checkbox" id="checkBloom"></p>
+    <p>Rootbastic: <input type="checkbox" id="checkRoot"></p>
+    <p>CalMag: <input type="checkbox" id="checkCalMag"></p>
 </div>
+<button onclick="showF()" style="display: none;" id="show">Zobraz tabulku!</button>
+<img id="LeavesRootBloomCal"  style="display: none;" src="C:\Users\user\Downloads\Grow-Guide_ATA-Awa-Leaves-Max-Rootbastic-Bloombastic-CalMag_210406.jpg" alt="">
+
