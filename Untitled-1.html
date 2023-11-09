@@ -1,0 +1,68 @@
+<script>
+function call(){
+ var rada = document.getElementById("rada").value
+ console.log(rada)
+ /*switch (String(rada)){
+ case "2":
+ document.getElementById ("zaklad_B").style.display = "none"
+  document.getElementById("zaklad_ATA").style.display   = "block";
+  console.log(rada)
+  
+  case "3":
+    document.getElementById("zaklad_B").style.display ="block";
+    document.getElementById ("zaklad_ATA").style.display = "none"
+    console.log(rada)
+ }*/
+ if (rada == "3"){
+ document.getElementById ("zaklad_B").style.display = "none"
+  document.getElementById("zaklad_ATA").style.display   = "block";
+ }
+ else
+ { 
+    document.getElementById("zaklad_B").style.display ="block";
+    document.getElementById ("zaklad_ATA").style.display = "none"
+ }
+  
+
+ }
+
+
+
+
+</script>
+<div>
+    <label for="rada">Vyberte řadu hnojiv:</label>
+    <select onchange="call()" id="rada">
+        <option value="0" selected disabled hidden> </option>
+        <option value="2">B'cuzz</option>
+        <option value="3">ATA</option>
+    </select>
+</div>
+<div style="display:none" id="zaklad_ATA">
+    <label for="zaklad_ATA_select">Vyberte základní výživu:</label>
+    <select  name="zaklad_ATA_select" >
+        <option value="0" selected disabled hidden> </option>
+        <option value="1">AWA Leaves+Max</option>
+        <option value="2">Coco Max A+B</option>
+        <option value="3">Terra Leaves+Max</option>
+    </select>
+</div>
+<div style="display:none;" id="zaklad_B">
+    <label for="zaklad_B__">Vyberte základní výživu:</label>
+    <select  name="zaklad_B__" >
+        <option value="0" selected disabled hidden> </option>
+        <option value="1">Bcuzz Coco A+B</option>
+        <option value="2">Bcuzz Hydro A+B</option>
+        <option value="3">Bcuzz Soil A+B</option>
+    </select>
+</div>
+<div style="display:block;" id="booster">
+    <label for="booster__">Vyberte booster:</label>
+    <select  name="booster__" >
+        <option value="0" selected disabled hidden> </option>
+        <option value="1">Bloombastic</option>
+        <option value="2">Rootbastic</option>
+        <option value="3">CalMag</option>
+        <option value="4">Rokzbastic</option>
+    </select>
+</div>
